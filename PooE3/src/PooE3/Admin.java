@@ -6,6 +6,6 @@ package PooE3;
 /**
  * 
  */
-public class Admin {
+public class Admin extends User{
 
 }
