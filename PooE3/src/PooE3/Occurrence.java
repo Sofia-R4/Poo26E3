@@ -23,6 +23,42 @@ public class Occurrence {
 		private User createdBy;
 		private OccurrenceType type;
 		private Employee assignedEmployee;
+		/**
+		 * @param id
+		 * @param description
+		 * @param location
+		 * @param priority
+		 * @param status
+		 * @param creationDate
+		 * @param resolutionDate
+		 * @param removalReason
+		 * @param comments
+		 * @param createdBy
+		 * @param type
+		 * @param assignedEmployee
+		 */
+		
+		
+		
+		public Occurrence(int id, String description, String location, Priority priority, OccurrenceStatus status,
+				LocalDate creationDate, LocalDate resolutionDate, String removalReason, ArrayList<Comment> comments,
+				User createdBy, OccurrenceType type, Employee assignedEmployee) {
+			super();
+			this.id = id;
+			this.description = description;
+			this.location = location;
+			this.priority = priority;
+			this.status = status;
+			this.creationDate = creationDate;
+			this.resolutionDate = resolutionDate;
+			this.removalReason = removalReason;
+			this.comments = comments;
+			this.createdBy = createdBy;
+			this.type = type;
+			this.assignedEmployee = assignedEmployee;
+		}
+		
+
 		
 
 }

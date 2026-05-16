@@ -13,5 +13,23 @@ public class Comment {
 	private String text;
 	private LocalDate postedDate;
 	private User author;
+	/**
+	 * @param id
+	 * @param text
+	 * @param postedDate
+	 * @param author
+	 */
+	
+	
+	public Comment(int id, String text, LocalDate postedDate, User author) {
+		super();
+		this.id = id;
+		this.text = text;
+		this.postedDate = postedDate;
+		this.author = author;
+	}
+	
+	
+	
 	
 }
