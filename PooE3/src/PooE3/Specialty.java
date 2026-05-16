@@ -6,6 +6,16 @@ package PooE3;
 /**
  * 
  */
-public class Specialty {
 
+import java.util.ArrayList;
+
+public class Specialty {
+	
+	private int id;
+	private String name;
+	private ArrayList<Employee> employees;
+	
+	
+	
+	
 }
