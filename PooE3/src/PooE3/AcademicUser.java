@@ -6,6 +6,6 @@ package PooE3;
 /**
  * 
  */
-public class Student extends User{
+public class AcademicUser extends User{
 
 }
