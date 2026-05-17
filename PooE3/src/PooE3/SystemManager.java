@@ -79,51 +79,56 @@ public class SystemManager {
 	}
 	
 	//login admin with verification of password and email
-		public User loginAdmin(String password, String email) {
-			for (User us : users) {
-				//the object in us is Admin?
-				if (us instanceof Admin) {
-					//this user is an admin
-					Admin adm = (Admin) us;
+	public User loginAdmin(String password, String email) {
+		for (User us : users) {
+			//the object in us is Admin?
+			if (us instanceof Admin) {
+				//this user is an admin
+				Admin adm = (Admin) us;
 					
-					if(adm.getEmail().equalsIgnoreCase(email)) {
-						if(adm.getPassword().equalsIgnoreCase(password)) {
-							System.out.println("Logged in!");
-						}
+				if(adm.getEmail().equalsIgnoreCase(email)) {
+					if(adm.getPassword().equalsIgnoreCase(password)) {
+						System.out.println("Logged in!");
+					}
 						
-						else{
-							System.out.println("Password is incorrect!");
-							return null;
-						}
+					else{
+						System.out.println("Password is incorrect!");
+						return null;
 					}
 				}
 			}
-				System.out.println("Email is incorrect!");
-				return null;
 		}
+			System.out.println("Email is incorrect!");
+			return null;
+	}
 		
-		//login employee with verification of password and email
-				public User loginEmployee(String password, String email) {
-					for (User us : users) {
-						//the object in us is Employee?
-						if (us instanceof Employee) {
-							//this user is an employee
-							Employee emp = (Employee) us;
+	//login employee with verification of password and email
+	public User loginEmployee(String password, String email) {
+		for (User us : users) {
+			//the object in us is Employee?
+			if (us instanceof Employee) {
+				//this user is an employee
+				Employee emp = (Employee) us;
 							
-							if(emp.getEmail().equalsIgnoreCase(email)) {
-								if(emp.getPassword().equalsIgnoreCase(password)) {
-									System.out.println("Logged in!");
-								}
-								
-								else{
-									System.out.println("Password is incorrect!");
-									return null;
-								}
-							}
-						}
+				if(emp.getEmail().equalsIgnoreCase(email)) {
+					if(emp.getPassword().equalsIgnoreCase(password)) {
+						System.out.println("Logged in!");
 					}
-						System.out.println("Email is incorrect!");
-						return null;
+							
+				else{
+					System.out.println("Password is incorrect!");
+					return null;
+					}
 				}
+			}
+		}
+		System.out.println("Email is incorrect!");
+		return null;
+	}
+	
+	//add employee, only admin can do it
+	public void addEmployee(Employee employee) {
+		employees.add(employee);
+	}
 	
 }
