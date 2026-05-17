@@ -36,6 +36,24 @@ public class SystemManager {
 		this.specialties = specialties;
 	}
 	
+	//add an user
+	public void addUser(User user) {
+		users.add(user);
+		System.out.println("User add with succes!");
+	}
+	
+	//test if password is vallid
+	public boolean isPasswordValid(String password) {
+		if(password.length()<8) {
+			System.out.println("The password must have at least 8 characters.");
+			return false;
+		}
+		
+		else {
+			return true;
+		}
+	}
+	
 
 	
 }
