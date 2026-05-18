@@ -16,9 +16,21 @@ public class AcademicUser extends User{
 	 * @param name
 	 * @param password
 	 */
-	public AcademicUser(String name, int UserNumber, String password) {
+	public AcademicUser(String name, int userNumber, String password) {
 		super(name, password);
 		// TODO Auto-generated constructor stub
+		this.userNumber = userNumber;
+	}
+
+
+
+	public int getUserNumber() {
+		return userNumber;
+	}
+
+
+
+	public void setUserNumber(int userNumber) {
 		this.userNumber = userNumber;
 	}
 

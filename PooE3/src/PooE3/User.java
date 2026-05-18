@@ -19,9 +19,13 @@ public class User {
 	}
 
 
-	
 	public String getName() {
 		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 
@@ -30,15 +34,8 @@ public class User {
 	}
 
 
-	// ONLY if user is allowed to change password!!!!
-	
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
 
-	
-	
 }
