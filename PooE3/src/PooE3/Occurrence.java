@@ -58,7 +58,10 @@ public class Occurrence {
 			this.assignedEmployee = assignedEmployee;
 		}
 		
-
+		//add comment
+		private void addComment(Comment comment) {
+			comments.add(comment);
+		}
 		
 
 }
