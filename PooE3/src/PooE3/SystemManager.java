@@ -72,7 +72,7 @@ public class SystemManager {
 					
 					else{
 						System.out.println("Password is incorrect!");
-						return null;
+						return au;
 					}
 				}
 			}
@@ -96,7 +96,7 @@ public class SystemManager {
 						
 					else{
 						System.out.println("Password is incorrect!");
-						return null;
+						return adm;
 					}
 				}
 			}
@@ -120,7 +120,7 @@ public class SystemManager {
 							
 				else{
 					System.out.println("Password is incorrect!");
-					return null;
+					return emp;
 					}
 				}
 			}
