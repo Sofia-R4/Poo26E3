@@ -63,5 +63,19 @@ public class Occurrence {
 			comments.add(comment);
 		}
 		
+		
+		
+		
+
+		public OccurrenceType getType() {
+			return type;
+		}
+
+		public void setType(OccurrenceType type) {
+			this.type = type;
+		}
+		
+		
+		
 
 }
