@@ -58,14 +58,6 @@ public class Occurrence {
 			this.assignedEmployee = assignedEmployee;
 		}
 		
-		//add comment
-		private void addComment(Comment comment) {
-			comments.add(comment);
-		}
-		
-		
-		
-		
 
 		public OccurrenceType getType() {
 			return type;
@@ -75,7 +67,119 @@ public class Occurrence {
 			this.type = type;
 		}
 		
-		
-		
+		public int getId() {
+			return id;
+		}
+
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+
+		public String getDescription() {
+			return description;
+		}
+
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
+
+
+		public String getLocation() {
+			return location;
+		}
+
+
+		public void setLocation(String location) {
+			this.location = location;
+		}
+
+
+		public Priority getPriority() {
+			return priority;
+		}
+
+
+		public void setPriority(Priority priority) {
+			this.priority = priority;
+		}
+
+
+		public OccurrenceStatus getStatus() {
+			return status;
+		}
+
+
+		public void setStatus(OccurrenceStatus status) {
+			this.status = status;
+		}
+
+
+		public LocalDate getCreationDate() {
+			return creationDate;
+		}
+
+
+		public void setCreationDate(LocalDate creationDate) {
+			this.creationDate = creationDate;
+		}
+
+
+		public LocalDate getResolutionDate() {
+			return resolutionDate;
+		}
+
+
+		public void setResolutionDate(LocalDate resolutionDate) {
+			this.resolutionDate = resolutionDate;
+		}
+
+
+		public String getRemovalReason() {
+			return removalReason;
+		}
+
+
+		public void setRemovalReason(String removalReason) {
+			this.removalReason = removalReason;
+		}
+
+
+		public ArrayList<Comment> getComments() {
+			return comments;
+		}
+
+
+		public void setComments(ArrayList<Comment> comments) {
+			this.comments = comments;
+		}
+
+
+		public User getCreatedBy() {
+			return createdBy;
+		}
+
+
+		public void setCreatedBy(User createdBy) {
+			this.createdBy = createdBy;
+		}
+
+
+		public Employee getAssignedEmployee() {
+			return assignedEmployee;
+		}
+
+
+		public void setAssignedEmployee(Employee assignedEmployee) {
+			this.assignedEmployee = assignedEmployee;
+		}
+
+
+				//add comment
+				private void addComment(Comment comment) {
+					comments.add(comment);
+				}
 
 }
