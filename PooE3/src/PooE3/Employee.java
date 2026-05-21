@@ -86,12 +86,16 @@ public class Employee extends User{
 				System.out.println("Data de Criação: " + oc.getCreationDate());
 			}
 		}
-		
 	}
 	
-	public boolean canAcceptOccurrence() {
-		return false;
-		
+	public void canAcceptOccurrence(Occurrence o) {
+	    if (getAssignedOccurrenceCount() == 3) {
+	       System.out.println("Não podem ser adicionadas mais ocorrências a este funcionário");
+	    } 
+	    else {
+	          occurrences.add(o);
+	          System.out.println("O funcionário pode receber mais ocorrências");
+	    }
 	}
 	
 	public int getAssignedOccurrenceCount() {
