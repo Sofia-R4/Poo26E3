@@ -22,14 +22,8 @@ public class SystemManager {
 	
 		
 	/**
-	 * @param users
-	 * @param employees
-	 * @param occurrences
-	 * @param types
-	 * @param specialties
 	 */
-	public SystemManager(ArrayList<User> users, ArrayList<Employee> employees, ArrayList<Occurrence> occurrences,
-			ArrayList<OccurrenceType> types, ArrayList<Specialty> specialties) {
+	public SystemManager() {
 		super();
 		this.users = users;
 		this.employees = employees;
