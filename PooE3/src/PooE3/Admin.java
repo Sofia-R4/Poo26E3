@@ -31,16 +31,25 @@ public class Admin extends User{
         users.add(employee);
     }
 	
-	//remove occurrence method
-	public void removeOccurrence(ArrayList<Occurrence> occurrences, Occurrence occurrence) {
-		if(occurrence.getStatus() == OccurrenceStatus.PENDING) {
-			occurrences.remove(occurrence);
-			System.out.println("Ocorrência removida com sucesso!");
+	//remove occurrence method only for admins
+	public void removeOccurrence(ArrayList<Occurrence>occurrences, int id) {
+		for (int i = 0; i< occurrences.size(); i++) {
+			
+			Occurrence oc = occurrences.get(i);
+			
+			if (oc.getId() == id) {
+				if(oc.getStatus() == OccurrenceStatus.PENDING) {
+					occurrences.remove(oc);
+					System.out.println("Occorrência removida com sucesso!");				}
+			}
+			
+			else {
+				System.out.println("A ocorrência já não está pendente, nao pode ser removida");
+			}
+			
+			return;
 		}
-		
-		else {
-			System.out.println("A ocorrência não pode ser removida pois já não está no estado Pendente.");
-		}
+		System.out.println("Ocorrencia nao encotrada/número de ocorrencia nao existe");
 	}
 	
 }
