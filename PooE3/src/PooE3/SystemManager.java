@@ -214,7 +214,7 @@ public class SystemManager {
 		}
 	}
 	
-	public void addOccurrence(Occurrence ocurrences) {
-		
+	public void addOccurrence(Occurrence occurrence) {
+		occurrences.add(occurrence);
 	}
 }
