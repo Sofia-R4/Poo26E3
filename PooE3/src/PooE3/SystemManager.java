@@ -91,7 +91,7 @@ public class SystemManager {
 					}
 						
 					else{
-						System.out.println("Password is incorrect!");
+						System.out.println("Password is incorrect! mmm");
 						return adm;
 					}
 				}
@@ -186,10 +186,6 @@ public class SystemManager {
 		
 	}
 	
-	
-	
-	
-	
 	// Method to add a Specialty
 	public void addSpecialty(Specialty specialty) {
 		if(specialty == null) {
@@ -201,4 +197,18 @@ public class SystemManager {
 		System.out.println("Specialty added successfully");
 	}
 	
+	public void getResolvedOccurrences() {
+		for (Occurrence oc : occurrences) {
+			if(oc.getStatus() == OccurrenceStatus.RESOLVED) {
+				System.out.println("As ocurrencias já resolvidas são:");
+				System.out.println("Data de Creaçãõ: " + oc.getCreationDate());
+				System.out.println("Data de Resolução: " + oc.getResolutionDate());
+				System.out.println("Tipo: " + oc.getType());
+			}
+		}
+	}
+	
+	public void addOccurrence(Occurrence occurrence) {
+		occurrences.add(occurrence);
+	}
 }
