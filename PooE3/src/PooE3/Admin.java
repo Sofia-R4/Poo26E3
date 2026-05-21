@@ -49,7 +49,7 @@ public class Admin extends User{
 			
 			return;
 		}
-		System.out.println("Ocorrencia nao encotrada/numero de ocorrencia nao existe");
+		System.out.println("Ocorrencia nao encotrada/número de ocorrencia nao existe");
 	}
 	
 }
