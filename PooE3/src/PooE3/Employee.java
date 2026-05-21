@@ -95,7 +95,14 @@ public class Employee extends User{
 	}
 	
 	public int getAssignedOccurrenceCount() {
-		return 0;
+	    int count = 0;
+	    for (Occurrence oc : occurrences) {
+	        if (oc.getAssignedEmployee() == this) {
+	            count++;
+	        }
+	    }
+	    System.out.println("A quantidade de ocurrencias atribuidas a este utilizador são: " + count);
+	    return count;
 		
 	}
 }
