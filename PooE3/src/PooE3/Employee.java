@@ -106,7 +106,23 @@ public class Employee extends User{
 	        }
 	    }
 	    System.out.println("This employee has: " + count + "occurrences");
-	    return count;
-		
+	    return count;	
 	}
+	
+	/*
+	 * public void addCommentToOccurrence(int id, String commentt) {
+	 * 
+	 * for(Occurrence oc : occurrences) {
+	 * 
+	 * if(oc.getId() == id && oc.getAssignedEmployee() == this) {
+	 * 
+	 * Comment comment = new Comment(commentt);
+	 * 
+	 * oc.addComment(comment);
+	 * 
+	 * System.out.println("Comment added!"); return; } }
+	 * 
+	 * System.out.println("Occurrence not found."); }
+	 */
 }
+

@@ -83,26 +83,62 @@ public class Main {
 				break;
 				
 			case 3:
+				
 				System.out.println("Email: ");
-				String emailLE = input.nextLine();
-				
-				System.out.println("Password: ");
-				String passwordLE = input.nextLine();
-				
-				manage.loginEmployee(passwordLE, emailLE);
-				
-				boolean loggedE = true;
-				
-				while (loggedE) {
-					
-					System.out.println("------ MENU EMPLOYEE ------");
-		            System.out.println("1 - ");
-		            System.out.println("2 - ");
-		            System.out.println("0 - Logout");
+			    String emailLE = input.nextLine();
 
-		            int optionE = Integer.parseInt(input.nextLine());
+			    System.out.println("Password: ");
+			    String passwordLE = input.nextLine();
 
-		            switch(optionE) {
+			    Employee emp = manage.loginEmployee(passwordLE, emailLE);
+
+			    if(emp != null) {
+
+			        System.out.println("Logged in!");
+
+			        boolean loggedE = true;
+
+			        while(loggedE) {
+
+			            System.out.println("------ MENU EMPLOYEE ------");
+			            System.out.println("1 - My occurrences");
+			            System.out.println("2 - End occurrence");
+			            System.out.println("3 - Add comments");
+			            System.out.println("0 - Logout");
+
+			            int optionE;
+			            
+			            try {
+
+			                optionE = Integer.parseInt(input.nextLine());
+
+			            } catch(NumberFormatException e) {
+
+			                System.out.println("Introduce a valid number.");
+			                continue;
+			            }
+
+			            switch(optionE) {
+			            	case 1:
+			            		emp.viewAssignedOccurrences();
+			            		
+			            		break;
+			            		
+			            	case 2:
+			            		System.out.println("Insert the number of the occurrence: ");
+			            		int id = input.nextInt();
+			            		input.nextLine();
+			            		
+			            		emp.updateAssignedOccurrenceStatus(id);
+			            		
+			            		break;
+			            		
+			            	case 3:
+			            		System.out.println("Insert the number of the occurrence: ");
+			            		int id3 = Integer.parseInt(input.nextLine());
+			            		
+			            		
+			            }
 		            
 		            }
 				}

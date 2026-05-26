@@ -109,7 +109,7 @@ public class SystemManager {
 	}
 		
 	//login employee with verification of password and email
-	public User loginEmployee(String password, String email) {
+	public Employee loginEmployee(String password, String email) {
 		for (User us : users) {
 			//the object in us is Employee?
 			if (us instanceof Employee) {

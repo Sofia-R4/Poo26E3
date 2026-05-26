@@ -178,9 +178,9 @@ public class Occurrence {
 		}
 
 
-				//add comment
-				private void addComment(Comment comment) {
-					comments.add(comment);
-				}
+		//add comment
+		public void addComment(Comment comment) {
+			comments.add(comment);
+		}
 
 }
