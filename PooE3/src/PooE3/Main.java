@@ -20,36 +20,53 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		
 		boolean continuar = true;
-		int opcao;
+		int opcao = 0;
 		while(true) {
-			System.out.println("1 - Criar conta como estudante");
-			System.out.println("2 - Criar conta como administrador");
-			System.out.println("3 - Login como funcionário");
-			System.out.println("0 - Sair");
+			System.out.println("------Create an account!------");
+			System.out.println("1 - Create an account as Academic User");
+			System.out.println("2 - Create an account as Admin");
 			
 			
-			opcao = input.nextInt();
-			input.nextLine();
+			System.out.println("------Login with your account!------");
+			System.out.println("3 - Login as Employee");
+			System.out.println("4 - Login as Academic User");
+			System.out.println("5 - Login as Admin");
+			
+			
+			System.out.println("0 - Left");
+			
+			
+			try {
+
+		        opcao = Integer.parseInt(input.nextLine());
+
+		    } catch(NumberFormatException e) {
+
+		        System.out.println("Introduce a vallid number.");
+		        continue;
+		    }
+			
 			switch(opcao) {
 			case 1:
-				System.out.println("Nome: ");
-				String nome = input.nextLine();
+				System.out.println("Name: ");
+				String nomeCAS = input.nextLine();
 				
-				System.out.println("Número de estudante: ");
-				int numero = input.nextInt();
+				System.out.println("Student number: ");
+				int numberCAS = input.nextInt();
 				input.nextLine();
 				
 				System.out.println("Password: ");
-				String password = input.nextLine();
+				String passwordCAS = input.nextLine();
 				
-				User user = new AcademicUser(nome, numero, password);
-				manage.addUser(user);
+				if(manage.isPasswordValid(passwordCAS)) {
+					User userS = new AcademicUser(nomeCAS, numberCAS, passwordCAS);
+					manage.addUser(userS);	
+				}
 				
-				System.out.println("Utilizador registado com sucesso!");
 				break;
 				
 			case 2:
-				System.out.println("Nome: ");
+				System.out.println("Name: ");
 				String nomeA = input.nextLine();
 				
 				System.out.println("Email: ");
@@ -58,17 +75,106 @@ public class Main {
 				System.out.println("Password: ");
 				String passwordA = input.nextLine();
 				
-				User userA = new Admin(nomeA, emailA, passwordA);
-				manage.addUser(userA);
-				
-				System.out.println("Administrador registado com sucesso!");
+				if(manage.isPasswordValid(passwordA) && manage.isEmailCorrect(emailA)) {
+					User userA = new Admin(nomeA, emailA, passwordA);
+					manage.addUser(userA);	
+				}
 				
 				break;
 				
+			case 3:
+				System.out.println("Email: ");
+				String emailLE = input.nextLine();
+				
+				System.out.println("Password: ");
+				String passwordLE = input.nextLine();
+				
+				manage.loginEmployee(passwordLE, emailLE);
+				
+				boolean loggedE = true;
+				
+				while (loggedE) {
+					
+					System.out.println("------ MENU EMPLOYEE ------");
+		            System.out.println("1 - ");
+		            System.out.println("2 - ");
+		            System.out.println("0 - Logout");
+
+		            int optionE = Integer.parseInt(input.nextLine());
+
+		            switch(optionE) {
+		            
+		            }
+				}
+				
+				break;
+				
+			case 4:			
+				
+				try {
+
+					System.out.println("Number: ");
+					int numberLAU = Integer.parseInt(input.nextLine());
+					
+					System.out.println("Password: ");
+					String passwordLAU = input.nextLine();
+					
+					manage.loginAcademicUser(passwordLAU, numberLAU);
+
+				} catch(NumberFormatException e) {
+
+				    System.out.println("Introduce a vallid number.");
+				}
+				
+				boolean loggedAU = true;
+				
+				while (loggedAU) {
+					
+					System.out.println("------ MENU ACADEMIC USER ------");
+		            System.out.println("1 - ");
+		            System.out.println("2 - ");
+		            System.out.println("0 - Logout");
+
+		            int optionAU = Integer.parseInt(input.nextLine());
+
+		            switch(optionAU) {
+		            
+		            }
+				}
+				
+				break;
+				
+			case 5:
+				System.out.println("Email: ");
+				String emailLA = input.nextLine();
+				
+				System.out.println("Password: ");
+				String passwordLA = input.nextLine();
+				
+				manage.loginAdmin(passwordLA, emailLA);
+				
+				boolean loggedA = true;
+				
+				while (loggedA) {
+					
+					System.out.println("------ MENU ADMIN ------");
+		            System.out.println("1 - ");
+		            System.out.println("2 - ");
+		            System.out.println("0 - Logout");
+
+		            int optionA = Integer.parseInt(input.nextLine());
+
+		            switch(optionA) {
+		            
+		            }
+				}
+				
+				break;
+				
+			case 0:
+				System.out.println("Out...");
+				return;
 			}
 		}
-		
-
 	}
-
 }

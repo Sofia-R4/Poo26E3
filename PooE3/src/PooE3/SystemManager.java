@@ -25,11 +25,11 @@ public class SystemManager {
 	 */
 	public SystemManager() {
 		super();
-		this.users = users;
-		this.employees = employees;
-		this.occurrences = occurrences;
-		this.types = types;
-		this.specialties = specialties;
+		users = new ArrayList<>();
+		employees = new ArrayList<>();
+		occurrences = new ArrayList<>();
+		types = new ArrayList<>();
+		specialties = new ArrayList<>();
 	}
 	
 	
@@ -53,8 +53,20 @@ public class SystemManager {
 		}
 	}
 	
+	//test if the format of email is correct
+	public boolean isEmailCorrect(String email) {
+		if(email.contains("@")) {
+			return true;
+		}
+		
+		else {
+			System.out.println("Email must contain @");
+			return false;
+		}
+	}
+	
 	//login academic user with verification of password and number
-	public User loginAcademicUser(String password, int number) {
+	public void loginAcademicUser(String password, int number) {
 		for (User us : users) {
 			//the object in us is academicUSer?
 			if (us instanceof AcademicUser) {
@@ -64,21 +76,16 @@ public class SystemManager {
 				if(au.getUserNumber() == number) {
 					if(au.getPassword().equalsIgnoreCase(password)) {
 						System.out.println("Logged in!");
-					}
-					
-					else{
-						System.out.println("Password is incorrect!");
-						return au;
+						return;
 					}
 				}
 			}
 		}
 			System.out.println("Number is incorrect!");
-			return null;
 	}
 	
 	//login admin with verification of password and email
-	public User loginAdmin(String password, String email) {
+	public void loginAdmin(String password, String email) {
 		for (User us : users) {
 			//the object in us is Admin?
 			if (us instanceof Admin) {
@@ -91,14 +98,14 @@ public class SystemManager {
 					}
 						
 					else{
-						System.out.println("Password is incorrect! mmm");
-						return adm;
+						System.out.println("Password is incorrect!");
+						return;
 					}
 				}
+				System.out.println("Email is incorrect!");
+				return;
 			}
-		}
-			System.out.println("Email is incorrect!");
-			return null;
+		}		
 	}
 		
 	//login employee with verification of password and email
@@ -200,10 +207,10 @@ public class SystemManager {
 	public void getResolvedOccurrences() {
 		for (Occurrence oc : occurrences) {
 			if(oc.getStatus() == OccurrenceStatus.RESOLVED) {
-				System.out.println("As ocurrencias já resolvidas são:");
-				System.out.println("Data de Creaçãõ: " + oc.getCreationDate());
-				System.out.println("Data de Resolução: " + oc.getResolutionDate());
-				System.out.println("Tipo: " + oc.getType());
+				System.out.println("Resolved occurrences are:");
+				System.out.println("Creation date: " + oc.getCreationDate());
+				System.out.println("Resolution date: " + oc.getResolutionDate());
+				System.out.println("Type: " + oc.getType());
 			}
 		}
 	}

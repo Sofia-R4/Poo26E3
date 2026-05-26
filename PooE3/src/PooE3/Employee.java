@@ -57,44 +57,44 @@ public class Employee extends User{
 					if(oc.getStatus() == OccurrenceStatus.IN_PROGRESS) {
 						oc.setStatus(OccurrenceStatus.RESOLVED);
 						
-						System.out.println("O estado foi atualizado");
+						System.out.println("State was update");
 					}
 					else {
-						System.out.println("A ocorrência não está em progresso, logo não pode ser atualizada");
+						System.out.println("Occurrence is in progress so it can not be update.");
 					}
 				}
 				
 				else {
-					System.out.println("A ocorrência selecionada não está sobre a tua juridiação");
+					System.out.println("Select occurrence don't belong to you.");
 				}
 				
 				return; //encontrou a ococrrencia correta entao acabou o for
 			}
 		}
 		
-		System.out.println("Esta ocorrência não existe");
+		System.out.println("This occurrence doesn't exist.");
 	}
 	
 	public void viewAssignedOccurrences() {
 		for (Occurrence oc : occurrences) {		
 			if(oc.getAssignedEmployee() == this) {
-				System.out.println("As ocurrencias que te pertencem são:");
-				System.out.println("Descrição: " + oc.getDescription());
+				System.out.println("Your occurrences:");
+				System.out.println("Description: " + oc.getDescription());
 				System.out.println("Status: " + oc.getStatus());
 				System.out.println("Location: " + oc.getLocation());
 				System.out.println("Priority: " + oc.getPriority());
-				System.out.println("Data de Criação: " + oc.getCreationDate());
+				System.out.println("Creation date: " + oc.getCreationDate());
 			}
 		}
 	}
 	
 	public void canAcceptOccurrence(Occurrence o) {
 	    if (getAssignedOccurrenceCount() == 3) {
-	       System.out.println("Não podem ser adicionadas mais ocorrências a este funcionário");
+	       System.out.println("This employee can not have more occurrences.");
 	    } 
 	    else {
 	          occurrences.add(o);
-	          System.out.println("O funcionário pode receber mais ocorrências");
+	          System.out.println("Employee can have more occurrences");
 	    }
 	}
 	
@@ -105,7 +105,7 @@ public class Employee extends User{
 	            count++;
 	        }
 	    }
-	    System.out.println("A quantidade de ocurrencias atribuidas a este utilizador são: " + count);
+	    System.out.println("This employee has: " + count + "occurrences");
 	    return count;
 		
 	}

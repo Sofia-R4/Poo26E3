@@ -40,16 +40,16 @@ public class Admin extends User{
 			if (oc.getId() == id) {
 				if(oc.getStatus() == OccurrenceStatus.PENDING) {
 					occurrences.remove(oc);
-					System.out.println("Occorrência removida com sucesso!");				}
+					System.out.println("OOccurrence remove with success!");				}
 			}
 			
 			else {
-				System.out.println("A ocorrência já não está pendente, nao pode ser removida");
+				System.out.println("Occurrence is not pendent so it can be remove anymore.");
 			}
 			
 			return;
 		}
-		System.out.println("Ocorrencia nao encotrada/número de ocorrencia nao existe");
+		System.out.println("Didn' found occurrence or number is incorrect.");
 	}
 	
 }
