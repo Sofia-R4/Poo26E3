@@ -33,7 +33,7 @@ public class Main {
 			System.out.println("5 - Login as Admin");
 			
 			
-			System.out.println("0 - Left");
+			System.out.println("0 - Leave");
 			
 			
 			try {
@@ -42,7 +42,7 @@ public class Main {
 
 		    } catch(NumberFormatException e) {
 
-		        System.out.println("Introduce a vallid number.");
+		        System.out.println("Introduce a valid number.");
 		        continue;
 		    }
 			
@@ -123,7 +123,7 @@ public class Main {
 
 				} catch(NumberFormatException e) {
 
-				    System.out.println("Introduce a vallid number.");
+				    System.out.println("Introduce a valid number.");
 				}
 				
 				boolean loggedAU = true;

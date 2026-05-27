@@ -40,16 +40,16 @@ public class Admin extends User{
 			if (oc.getId() == id) {
 				if(oc.getStatus() == OccurrenceStatus.PENDING) {
 					occurrences.remove(oc);
-					System.out.println("OOccurrence remove with success!");				}
+					System.out.println("Occurrence removed with success!");				}
 			}
 			
 			else {
-				System.out.println("Occurrence is not pendent so it can be remove anymore.");
+				System.out.println("Occurrence status is not pending. Not possible to remove");
 			}
 			
 			return;
 		}
-		System.out.println("Didn' found occurrence or number is incorrect.");
+		System.out.println("Occurrence not found!");
 	}
 	
 }
