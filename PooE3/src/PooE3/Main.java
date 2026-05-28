@@ -110,38 +110,80 @@ public class Main {
 				break;
 				
 			case 4:			
-				
-				try {
 
+				try {
 					System.out.println("Number: ");
 					int numberLAU = Integer.parseInt(input.nextLine());
-					
+
 					System.out.println("Password: ");
 					String passwordLAU = input.nextLine();
-					
+
 					manage.loginAcademicUser(passwordLAU, numberLAU);
 
 				} catch(NumberFormatException e) {
-
-				    System.out.println("Introduce a vallid number.");
+					System.out.println("Introduce a valid number.");
+					break;
 				}
-				
+
 				boolean loggedAU = true;
-				
+
 				while (loggedAU) {
-					
+
 					System.out.println("------ MENU ACADEMIC USER ------");
-		            System.out.println("1 - ");
-		            System.out.println("2 - ");
-		            System.out.println("0 - Logout");
+					System.out.println("1 - Create Occurrence");
+					System.out.println("2 - Edit Occurrence");
+					System.out.println("3 - Remove Occurrence");
+					System.out.println("0 - Logout");
 
-		            int optionAU = Integer.parseInt(input.nextLine());
+					int optionAU = Integer.parseInt(input.nextLine());
 
-		            switch(optionAU) {
-		            
-		            }
+					switch(optionAU) {
+
+					case 1:
+						System.out.println("Title: ");
+						String title = input.nextLine();
+
+						System.out.println("Description: ");
+						String description = input.nextLine();
+
+						// AJUSTA conforme o teu SystemManager
+						manage.createOccurrence(title, description);
+
+						System.out.println("Occurrence created!");
+						break;
+
+					case 2:
+						System.out.println("Occurrence ID to edit: ");
+						int idEdit = Integer.parseInt(input.nextLine());
+
+						System.out.println("New title: ");
+						String newTitle = input.nextLine();
+
+						System.out.println("New description: ");
+						String newDescription = input.nextLine();
+
+						// AJUSTA conforme o teu SystemManager
+						manage.editOccurrence(idEdit, newTitle, newDescription);
+
+						System.out.println("Occurrence edited!");
+						break;
+
+					case 3:
+						System.out.println("Occurrence ID to remove: ");
+						int idRemove = Integer.parseInt(input.nextLine());
+
+						// AJUSTA conforme o teu SystemManager
+						manage.removeOccurrence(idRemove);
+
+						System.out.println("Occurrence removed!");
+						break;
+
+					case 0:
+						loggedAU = false;
+						System.out.println("Logout...");
+						break;
+					}
 				}
-				
 				break;
 				
 			case 5:
