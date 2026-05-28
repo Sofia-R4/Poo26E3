@@ -35,13 +35,13 @@ public class SystemManager {
 	
 	
 	
-	//add an user
+
 	public void addUser(User user) {
 		users.add(user);
 		System.out.println("User add with success!");
 	}
 		
-	//test if password is valid
+
 	public boolean isPasswordValid(String password) {
 		if(password.length()<8) {
 			System.out.println("The password must have at least 8 characters.");
@@ -53,7 +53,7 @@ public class SystemManager {
 		}
 	}
 	
-	//test if the format of email is correct
+
 	public boolean isEmailCorrect(String email) {
 		if(email.contains("@")) {
 			return true;
@@ -64,13 +64,12 @@ public class SystemManager {
 			return false;
 		}
 	}
-	
-	//login academic user with verification of password and number
+
 	public void loginAcademicUser(String password, int number) {
 		for (User us : users) {
-			//the object in us is academicUSer?
+
 			if (us instanceof AcademicUser) {
-				//this user is an academic user
+		
 				AcademicUser au = (AcademicUser) us;
 				
 				if(au.getUserNumber() == number) {
@@ -84,12 +83,12 @@ public class SystemManager {
 			System.out.println("Number is incorrect!");
 	}
 	
-	//login admin with verification of password and email
+
 	public void loginAdmin(String password, String email) {
 		for (User us : users) {
-			//the object in us is Admin?
+
 			if (us instanceof Admin) {
-				//this user is an admin
+	
 				Admin adm = (Admin) us;
 					
 				if(adm.getEmail().equalsIgnoreCase(email)) {
