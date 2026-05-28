@@ -108,12 +108,12 @@ public class SystemManager {
 		}		
 	}
 		
-	//login employee with verification of password and email
+
 	public User loginEmployee(String password, String email) {
 		for (User us : users) {
-			//the object in us is Employee?
+
 			if (us instanceof Employee) {
-				//this user is an employee
+	
 				Employee emp = (Employee) us;
 							
 				if(emp.getEmail().equalsIgnoreCase(email)) {
@@ -132,7 +132,7 @@ public class SystemManager {
 		return null;
 	}
 	
-	//add employee, only admin can do it
+
 	public void addEmployee(Employee employee) {
 		employees.add(employee);
 	}
@@ -144,14 +144,14 @@ public class SystemManager {
 	
 	
 	
-	// Method to get all occurrences
+
 
 	public ArrayList<Occurrence> getOccurrences() {
 		return new ArrayList<>(occurrences);
 	}
 	
 	
-	// Method to get all employees by specialty
+
 	
 	public ArrayList<Employee> getEmployeesBySpecialty(Specialty specialty){
 		
@@ -218,4 +218,5 @@ public class SystemManager {
 	public void addOccurrence(Occurrence occurrence) {
 		occurrences.add(occurrence);
 	}
+	
 }

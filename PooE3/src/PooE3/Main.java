@@ -146,7 +146,7 @@ public class Main {
 						System.out.println("Description: ");
 						String description = input.nextLine();
 
-						// AJUSTA conforme o teu SystemManager
+			
 						manage.createOccurrence(title, description);
 
 						System.out.println("Occurrence created!");
@@ -162,7 +162,7 @@ public class Main {
 						System.out.println("New description: ");
 						String newDescription = input.nextLine();
 
-						// AJUSTA conforme o teu SystemManager
+		
 						manage.editOccurrence(idEdit, newTitle, newDescription);
 
 						System.out.println("Occurrence edited!");
@@ -172,7 +172,7 @@ public class Main {
 						System.out.println("Occurrence ID to remove: ");
 						int idRemove = Integer.parseInt(input.nextLine());
 
-						// AJUSTA conforme o teu SystemManager
+			
 						manage.removeOccurrence(idRemove);
 
 						System.out.println("Occurrence removed!");
