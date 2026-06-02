@@ -31,6 +31,8 @@ public class Admin extends User{
         users.add(employee);
     }
 	
+	
+	
 	//remove occurrence method only for admins
 	public void removeOccurrence(ArrayList<Occurrence>occurrences, int id) {
 		for (int i = 0; i< occurrences.size(); i++) {
@@ -50,6 +52,41 @@ public class Admin extends User{
 			return;
 		}
 		System.out.println("Occurrence not found!");
+		
+		
 	}
+	
+	
+	
+	// Update occurrence status
+	public void updateOccurrenceStatus(Occurrence occurrence, OccurrenceStatus newStatus) {
+	    if (occurrence == null) {
+	        System.out.println("Error: occurrence cannot be null.");
+	        return;
+	    }
+
+	    occurrence.updateStatus(newStatus);
+	}
+	
+	
+	
+	
+	// Assign occurrence to employee
+	public void assignOccurrence(Occurrence occurrence, Employee employee) {
+	    if (occurrence == null) {
+	        System.out.println("Error: occurrence cannot be null.");
+	        return;
+	    }
+
+	    if (employee == null) {
+	        System.out.println("Error: employee cannot be null.");
+	        return;
+	    }
+
+	    occurrence.assignEmployee(employee);
+	}
+	
+	
+	
 	
 }

@@ -22,7 +22,9 @@ public class Employee extends User{
 	public Employee(String name, String email, String password, Specialty specialty) {
 		super(name, password);
 		// TODO Auto-generated constructor stub
-		
+	    this.email = email;
+	    this.specialty = specialty;
+	    this.occurrences = new ArrayList<>();
 	}
 
 

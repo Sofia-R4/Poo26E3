@@ -27,7 +27,42 @@ public class Specialty {
 		this.name = name;
 		this.employees = employees;
 	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public ArrayList<Employee> getEmployees() {
+		return employees;
+	}
+
+
+	public void setEmployees(ArrayList<Employee> employees) {
+		this.employees = employees;
+	}
 	
+	
+	@Override
+	public String toString() {
+	    return name;
+	}
 	
 	
 	

@@ -22,15 +22,36 @@ public class AcademicUser extends User {
 	public void setUserNumber(int userNumber) {
 		this.userNumber = userNumber;
 	}
+	
+	
+	public ArrayList<Occurrence> getOccurrences() {
+		return new ArrayList<>(occurrences);
+	}
+
 
 	
-	public Occurrence createOccurrence(int id, String description, String location) {
 
-		OccurrenceType type = new OccurrenceType(
-				1,
-				"Other",
-				"Generic occurrence"
-		);
+	public Occurrence createOccurrence(int id, String description, String location, OccurrenceType type, SystemManager systemManager) {
+
+		if (description == null || description.isBlank()) {
+			System.out.println("Error: Description cannot be empty!");
+			return null;
+		}
+		
+		if (location == null || location.isBlank()) {
+	            System.out.println("Error: location cannot be empty.");
+	            return null;
+	        }
+
+	    if (type == null) {
+	            System.out.println("Error: occurrence type cannot be null.");
+	            return null;
+	        }
+
+	    if (systemManager == null) {
+	            System.out.println("Error: system manager cannot be null.");
+	            return null;
+	        }
 
 		Occurrence occurrence = new Occurrence(
 				id,
@@ -47,13 +68,29 @@ public class AcademicUser extends User {
 				null
 		);
 
+		
+		// Adding the occurrence to the local list of the academic user
 		occurrences.add(occurrence);
 
+		
+		// Registering occurrence in the global list of occurrences
+		systemManager.addOccurrence(occurrence);
+		
+		System.out.println("Occurrence created successfully!");
+		
 		return occurrence;
 	}
 
+	
+	
 
 	public boolean editOccurrence(int id, String newDescription) {
+		
+
+	    if (newDescription == null || newDescription.isBlank()) {
+	        System.out.println("Error: description cannot be empty.");
+	        return false;
+	    }
 
 		for (Occurrence occurrence : occurrences) {
 

@@ -141,9 +141,6 @@ public class SystemManager {
 	
 	
 	
-	
-	
-	
 	// Method to get all occurrences
 
 	public ArrayList<Occurrence> getOccurrences() {
@@ -155,7 +152,7 @@ public class SystemManager {
 	
 	public ArrayList<Employee> getEmployeesBySpecialty(Specialty specialty){
 		
-		ArrayList<Employee> result = new ArrayList();
+		ArrayList<Employee> result = new ArrayList<>();
 		
 		if(specialty == null) {
 			System.out.println("Specialty cannot be null!");
@@ -216,6 +213,12 @@ public class SystemManager {
 	}
 	
 	public void addOccurrence(Occurrence occurrence) {
+		
+	    if (occurrence == null) {
+	        System.out.println("Error: occurrence cannot be null.");
+	        return;
+	    }
 		occurrences.add(occurrence);
+	    System.out.println("Occurrence added successfully!");
 	}
 }
