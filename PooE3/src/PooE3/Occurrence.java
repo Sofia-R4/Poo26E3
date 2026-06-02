@@ -178,9 +178,27 @@ public class Occurrence {
 		}
 
 
+
 		//add comment
+		public boolean canBeEdited() {
+
+			return status == OccurrenceStatus.PENDING;
+		}
+
+
+		public boolean canBeRemoved() {
+
+			return status == OccurrenceStatus.PENDING;
+		}
+
+	
+		public void markAsRemoved() {
+
+			this.removalReason = "Removed";
+		}
+	
+
 		public void addComment(Comment comment) {
 			comments.add(comment);
 		}
-
 }
