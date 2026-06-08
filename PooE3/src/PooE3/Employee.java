@@ -22,7 +22,9 @@ public class Employee extends User{
 	public Employee(String name, String email, String password, Specialty specialty) {
 		super(name, password);
 		// TODO Auto-generated constructor stub
-		
+	    this.email = email;
+	    this.specialty = specialty;
+	    this.occurrences = new ArrayList<>();
 	}
 
 
@@ -57,10 +59,10 @@ public class Employee extends User{
 					if(oc.getStatus() == OccurrenceStatus.IN_PROGRESS) {
 						oc.setStatus(OccurrenceStatus.RESOLVED);
 						
-						System.out.println("State was update");
+						System.out.println("State was updated");
 					}
 					else {
-						System.out.println("Occurrence is in progress so it can not be update.");
+						System.out.println("Occurrence is in progress so it can not be updated.");
 					}
 				}
 				

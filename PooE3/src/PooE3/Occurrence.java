@@ -200,5 +200,32 @@ public class Occurrence {
 
 		public void addComment(Comment comment) {
 			comments.add(comment);
+		}		
+		
+		// Update status
+		public void updateStatus(OccurrenceStatus newStatus) {
+		    if (newStatus == null) {
+		        System.out.println("Error: status cannot be null.");
+		        return;
+		    }
+
+		    this.status = newStatus;
+
+		    if (newStatus == OccurrenceStatus.RESOLVED) {
+		        this.resolutionDate = LocalDate.now();
+		    }
+		}
+		
+		
+		
+		// Assign employee
+		public void assignEmployee(Employee employee) {
+		    if (employee == null) {
+		        System.out.println("Error: employee cannot be null.");
+		        return;
+		    }
+
+		    this.assignedEmployee = employee;
+		    this.status = OccurrenceStatus.IN_PROGRESS;
 		}
 }
