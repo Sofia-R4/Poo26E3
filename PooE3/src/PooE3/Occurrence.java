@@ -38,13 +38,13 @@ public class Occurrence {
 		 * @param assignedEmployee
 		 */
 		
+		//gerar automaticamente id para cada ocorrencia
+		private static int nextId = 1;
 		
-		
-		public Occurrence(int id, String description, String location, Priority priority, OccurrenceStatus status,
+		public Occurrence(String description, String location, Priority priority, OccurrenceStatus status,
 				LocalDate creationDate, LocalDate resolutionDate, String removalReason, ArrayList<Comment> comments,
 				User createdBy, OccurrenceType type, Employee assignedEmployee) {
 			super();
-			this.id = id;
 			this.description = description;
 			this.location = location;
 			this.priority = priority;

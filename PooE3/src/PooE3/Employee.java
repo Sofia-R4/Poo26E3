@@ -111,20 +111,24 @@ public class Employee extends User{
 	    return count;	
 	}
 	
-	/*
-	 * public void addCommentToOccurrence(int id, String commentt) {
-	 * 
-	 * for(Occurrence oc : occurrences) {
-	 * 
-	 * if(oc.getId() == id && oc.getAssignedEmployee() == this) {
-	 * 
-	 * Comment comment = new Comment(commentt);
-	 * 
-	 * oc.addComment(comment);
-	 * 
-	 * System.out.println("Comment added!"); return; } }
-	 * 
-	 * System.out.println("Occurrence not found."); }
-	 */
+	
+	public void addCommentToOccurrence(int id, String commentt) {
+
+	    for (Occurrence oc : occurrences) {
+
+	        if (oc.getId() == id && oc.getAssignedEmployee() == this) {
+
+	            Comment comment = new Comment(commentt, this);
+
+	            oc.addComment(comment);
+
+	            System.out.println("Comment added!");
+	            return;
+	        }
+	    }
+
+	    System.out.println("Occurrence not found.");
+	}
+	 
 }
 

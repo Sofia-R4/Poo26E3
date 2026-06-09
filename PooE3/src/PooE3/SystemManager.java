@@ -66,7 +66,7 @@ public class SystemManager {
 	}
 	
 	//login academic user with verification of password and number
-	public void loginAcademicUser(String password, int number) {
+	public AcademicUser loginAcademicUser(String password, int number) {
 		for (User us : users) {
 			//the object in us is academicUSer?
 			if (us instanceof AcademicUser) {
@@ -76,12 +76,13 @@ public class SystemManager {
 				if(au.getUserNumber() == number) {
 					if(au.getPassword().equalsIgnoreCase(password)) {
 						System.out.println("Logged in!");
-						return;
+						return au;
 					}
 				}
 			}
 		}
 			System.out.println("Number is incorrect!");
+			return null;
 	}
 	
 	//login admin with verification of password and email
@@ -220,5 +221,21 @@ public class SystemManager {
 	    }
 		occurrences.add(occurrence);
 	    System.out.println("Occurrence added successfully!");
+	}
+	
+	public OccurrenceType findOccurrenceTypeById(int id) {
+
+	    for (OccurrenceType type : types) {
+	        if (type.getId() == id) {
+	            return type;
+	        }
+	    }
+
+	    return null;
+	}
+
+
+	public ArrayList<OccurrenceType> getOccurrenceTypes() {
+		return null;
 	}
 }
