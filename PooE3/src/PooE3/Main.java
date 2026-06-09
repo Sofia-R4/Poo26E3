@@ -280,6 +280,7 @@ public class Main {
 						
 				break;
 				
+				//adm
 			case 5:
 				System.out.println("Email: ");
 				String emailLA = input.nextLine();
@@ -312,8 +313,7 @@ public class Main {
 			            		String emailFun = input.nextLine();
 			            		
 			            		System.out.println("Insert the password: ");
-			            		String passwordFun = input.nextLine();
-			            		
+			            		String passwordFun = input.nextLine();		            		
 			            
 			            }
 					}
