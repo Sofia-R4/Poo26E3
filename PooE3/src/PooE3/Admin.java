@@ -27,9 +27,10 @@ public class Admin extends User{
 	}
 	
 	//method to add an employee
-	public void registerEmployee(ArrayList<User> users, Employee employee) {
-        users.add(employee);
-    }
+	public void registerEmployee(String name, String email, String password, Specialty specialty, SystemManager manage) {
+
+	    manage.registerEmployee(name, email, password, specialty);
+	}
 	
 	
 	
@@ -55,8 +56,7 @@ public class Admin extends User{
 		
 		
 	}
-	
-	
+
 	
 	// Update occurrence status
 	public void updateOccurrenceStatus(Occurrence occurrence, OccurrenceStatus newStatus) {
@@ -84,9 +84,6 @@ public class Admin extends User{
 	    }
 
 	    occurrence.assignEmployee(employee);
-	}
-	
-	
-	
+	}	
 	
 }
