@@ -31,7 +31,7 @@ public class AcademicUser extends User {
 
 	
 
-	public Occurrence createOccurrence(int id, String description, String location, OccurrenceType type, SystemManager systemManager) {
+	public Occurrence createOccurrence(String description, String location, OccurrenceType type, SystemManager systemManager) {
 
 		if (description == null || description.isBlank()) {
 			System.out.println("Error: Description cannot be empty!");
@@ -54,7 +54,6 @@ public class AcademicUser extends User {
 	        }
 
 		Occurrence occurrence = new Occurrence(
-				id,
 				description,
 				location,
 				Priority.LOW,

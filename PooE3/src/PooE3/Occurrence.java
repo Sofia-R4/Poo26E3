@@ -38,13 +38,13 @@ public class Occurrence {
 		 * @param assignedEmployee
 		 */
 		
+		//gerar automaticamente id para cada ocorrencia
+		private static int nextId = 1;
 		
-		
-		public Occurrence(int id, String description, String location, Priority priority, OccurrenceStatus status,
+		public Occurrence(String description, String location, Priority priority, OccurrenceStatus status,
 				LocalDate creationDate, LocalDate resolutionDate, String removalReason, ArrayList<Comment> comments,
 				User createdBy, OccurrenceType type, Employee assignedEmployee) {
 			super();
-			this.id = id;
 			this.description = description;
 			this.location = location;
 			this.priority = priority;
@@ -178,6 +178,8 @@ public class Occurrence {
 		}
 
 
+
+		//add comment
 		public boolean canBeEdited() {
 
 			return status == OccurrenceStatus.PENDING;
@@ -195,11 +197,10 @@ public class Occurrence {
 			this.removalReason = "Removed";
 		}
 	
+
 		public void addComment(Comment comment) {
 			comments.add(comment);
-		}
-		
-		
+		}		
 		
 		// Update status
 		public void updateStatus(OccurrenceStatus newStatus) {
@@ -227,5 +228,4 @@ public class Occurrence {
 		    this.assignedEmployee = employee;
 		    this.status = OccurrenceStatus.IN_PROGRESS;
 		}
-
 }
