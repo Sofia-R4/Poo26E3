@@ -19,7 +19,7 @@ public class SystemManager {
 	private ArrayList<Occurrence>occurrences;
 	private ArrayList<OccurrenceType>types;
 	private ArrayList<Specialty>specialties;
-	
+	private int nextSpecialtyId = 1;
 		
 	/**
 	 */
@@ -33,7 +33,11 @@ public class SystemManager {
 	}
 	
 	
-	
+	//create specialty in adm
+		public int generateSpecialtyId() {
+		    return nextSpecialtyId++;
+		}
+		
 	
 	//add an user
 	public void addUser(User user) {
@@ -86,7 +90,7 @@ public class SystemManager {
 	}
 	
 	//login admin with verification of password and email
-	public void loginAdmin(String password, String email) {
+	public Admin loginAdmin(String password, String email) {
 		for (User us : users) {
 			//the object in us is Admin?
 			if (us instanceof Admin) {
@@ -100,14 +104,16 @@ public class SystemManager {
 						
 					else{
 						System.out.println("Password is incorrect!");
-						return;
+						return adm;
 					}
 				}
-				System.out.println("Email is incorrect!");
-				return;
 			}
-		}		
+		}	
+		
+		System.out.println("Email is incorrect!");
+		return null;
 	}
+	
 		
 	//login employee with verification of password and email
 	public Employee loginEmployee(String password, String email) {
@@ -133,17 +139,14 @@ public class SystemManager {
 		return null;
 	}
 	
+	
 	//add employee, only admin can do it
 	public void addEmployee(Employee employee) {
 		employees.add(employee);
 	}
 	
 	
-	
-	
-	
 	// Method to get all occurrences
-
 	public ArrayList<Occurrence> getOccurrences() {
 		return new ArrayList<>(occurrences);
 	}
@@ -234,8 +237,37 @@ public class SystemManager {
 	    return null;
 	}
 
-
 	public ArrayList<OccurrenceType> getOccurrenceTypes() {
 		return null;
 	}
+	
+	public void registerEmployee(String name, String email, String password, Specialty specialty) {
+
+	    if (name == null || name.isBlank()) {
+	        System.out.println("Error: name cannot be empty.");
+	        return;
+	    }
+
+	    if (!isEmailCorrect(email)) {
+	        return;
+	    }
+
+	    if (!isPasswordValid(password)) {
+	        return;
+	    }
+
+	    if (specialty == null) {
+	        System.out.println("Error: specialty cannot be null.");
+	        return;
+	    }
+
+	    Employee emp = new Employee(name, email, password, specialty);
+
+	    employees.add(emp);
+	    users.add(emp);
+
+	    System.out.println("Employee created successfully!");
+	}
+	
+	
 }

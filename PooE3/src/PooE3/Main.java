@@ -280,6 +280,7 @@ public class Main {
 						
 				break;
 				
+				//adm
 			case 5:
 				System.out.println("Email: ");
 				String emailLA = input.nextLine();
@@ -287,23 +288,37 @@ public class Main {
 				System.out.println("Password: ");
 				String passwordLA = input.nextLine();
 				
-				manage.loginAdmin(passwordLA, emailLA);
+				Admin adm = manage.loginAdmin(passwordLA, emailLA);
 				
-				boolean loggedA = true;
 				
-				while (loggedA) {
+				if(adm != null) {
+					boolean loggedA = true;
 					
-					System.out.println("------ MENU ADMIN ------");
-		            System.out.println("1 - ");
-		            System.out.println("2 - ");
-		            System.out.println("0 - Logout");
+					while (loggedA) {
+						
+						System.out.println("------ MENU ADMIN ------");
+			            System.out.println("1 - Register employees.");
+			            System.out.println("2 - Create Specialty.");
+			            System.out.println("0 - Logout");
 
-		            int optionA = Integer.parseInt(input.nextLine());
+			            int optionA = Integer.parseInt(input.nextLine());
 
-		            switch(optionA) {
-		            
-		            }
+			            switch(optionA) {
+			            
+			            	case 1:
+			            		System.out.println("Insert the name: ");
+			            		String nameFun = input.nextLine();
+			            		
+			            		System.out.println("Insert the email: ");
+			            		String emailFun = input.nextLine();
+			            		
+			            		System.out.println("Insert the password: ");
+			            		String passwordFun = input.nextLine();		            		
+			            
+			            }
+					}
 				}
+				
 				
 				break;
 				
