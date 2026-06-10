@@ -212,11 +212,33 @@ public class Occurrence {
 		    System.out.println("Occurrence marked as removed.");
 		}
 		
+		
+		/**
+		 * Helper Method
+		 */
+		public boolean isActive() {
+		    return status == OccurrenceStatus.PENDING || status == OccurrenceStatus.IN_PROGRESS;
+		}
+		
 	
 
 		public void addComment(Comment comment) {
+		    if (comment == null) {
+		        System.out.println("Error: comment cannot be null.");
+		        return;
+		    }
+
+		    if (!isActive()) {
+		        System.out.println("Error: comments can only be added to active occurrences.");
+		        return;
+		    }
+
 			comments.add(comment);
-		}		
+			
+			System.out.println("Comment added successfully");
+		}
+		
+		
 		
 		// Update status
 		public void updateStatus(OccurrenceStatus newStatus) {
