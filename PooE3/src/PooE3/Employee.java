@@ -53,13 +53,14 @@ public class Employee extends User{
 	}
 	
 	
-	
+	//resolve an Occurrence
 	public void resolveOccurrence(Occurrence occurrence) {
 	    if (occurrence == null) {
 	        System.out.println("Error: occurrence cannot be null.");
 	        return;
 	    }
-
+	    
+	    //if the list of oc of this employee doesnot contain that oc
 	    if (!occurrences.contains(occurrence)) {
 	        System.out.println("Error: this occurrence is not assigned to this employee.");
 	        return;
@@ -76,7 +77,7 @@ public class Employee extends User{
 	}
 	
 	
-	
+	//current employee see his occurrences
 	public void viewAssignedOccurrences() {
 		for (Occurrence oc : occurrences) {		
 			if(oc.getAssignedEmployee() == this) {
@@ -90,6 +91,8 @@ public class Employee extends User{
 		}
 	}
 	
+	
+	//if employee can accept occurrence
 	public boolean canAcceptOccurrence() {
 	    int pendingCount = 0;
 
@@ -102,6 +105,7 @@ public class Employee extends User{
 	}
 	
 	
+	//to see the assigns occurrences of each employee
 	public int getAssignedOccurrenceCount() {
 	    int count = 0;
 	    for (Occurrence oc : occurrences) {
@@ -113,6 +117,7 @@ public class Employee extends User{
 	}
 	
 	
+	//assign occurrence to an employee
 	public void addAssignedOccurrence(Occurrence occurrence) {
 	    if (occurrence == null) {
 	        System.out.println("Error: occurrence cannot be null.");
@@ -133,6 +138,7 @@ public class Employee extends User{
 	}
 	
 	
+	//add a comment to an occurrence
 	public void addCommentToOccurrence(int id, String commentt) {
 
 	    for (Occurrence oc : occurrences) {

@@ -24,6 +24,7 @@ public class Main {
 		boolean continuar = true;
 		
 		while(true) {
+			System.out.println("");
 			System.out.println("------Main menu------");
 			System.out.println("1 - Create an account as Academic User");
 			System.out.println("2 - Create an account as Admin");
@@ -106,7 +107,7 @@ public class Main {
                 }
                 
                 // Academic User Menu
-			    	if(loggedUser instanceof AcademicUser	) {
+			    	if(loggedUser instanceof AcademicUser) {
 			    
 			    		AcademicUser academicUser = (AcademicUser) loggedUser;
 			    		boolean loggedAcademic = true;
@@ -224,12 +225,14 @@ public class Main {
 
                             	break;
                             
-                            // To view occurrences
+                            
+                            	// To view occurrences
 			    			case 2:
                                 academicUser.viewOccurrences();
                                 break;
                                 
                                 
+                            
                             // To edit an occurrence
 			    			case 3:
                                 System.out.println("ID of occurrence to edit:");
@@ -249,8 +252,7 @@ public class Main {
                                 break;
 
                                 
-                            // To remove an occurrence
-                                
+                            // To remove an occurrence     
 			    			case 4:
                                  System.out.println("ID of occurrence to remove:");
                                  int removeId;
@@ -309,10 +311,13 @@ public class Main {
 
                             switch (employeeOption) {
 
-                                case 1:
+                                
+                            	//employee occurrences
+                            	case 1:
                                     employee.viewAssignedOccurrences();
                                     break;
 
+                                //resolve occurrence
                                 case 2:
                                     System.out.println("ID of occurrence to resolve:");
                                     int resolveId;
@@ -334,6 +339,8 @@ public class Main {
                                     employee.resolveOccurrence(occurrenceToResolve);
                                     break;
 
+                                    
+                                //add a comment
                                 case 3:
                                     System.out.println("ID of occurrence:");
                                     int commentOccurrenceId;
@@ -372,7 +379,7 @@ public class Main {
 
 			        while(loggedA) {
 
-			            System.out.println("------ MENU EMPLOYEE ------");
+			            System.out.println("------ MENU ADMIN ------");
 			            System.out.println("1 - Register employee");
 			            System.out.println("2 - Create specialty");
 			            System.out.println("3 - View all occurrences");
