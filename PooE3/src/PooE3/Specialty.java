@@ -62,8 +62,6 @@ public class Specialty {
 	@Override
 	public String toString() {
 	    return name;
-	}
-	
-	
+	}	
 	
 }

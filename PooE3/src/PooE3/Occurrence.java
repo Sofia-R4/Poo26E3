@@ -180,20 +180,18 @@ public class Occurrence {
 
 
 
-		//add comment
+		//verify if can be edit
 		public boolean canBeEdited() {
-
 			return status == OccurrenceStatus.PENDING;
 		}
 
-
+		//verify if can be remove
 		public boolean canBeRemoved() {
-
 			return status == OccurrenceStatus.PENDING;
 		}
 
 		
-	
+		//is mark as remove and insert the reason
 		public void markAsRemoved(String reason) {
 
 			if (reason == null || reason.isBlank()) {
@@ -213,15 +211,14 @@ public class Occurrence {
 		}
 		
 		
-		/**
-		 * Helper Method
-		 */
+
+		//helper method
 		public boolean isActive() {
 		    return status == OccurrenceStatus.PENDING || status == OccurrenceStatus.IN_PROGRESS;
 		}
 		
 	
-
+		//add a comment
 		public void addComment(Comment comment) {
 		    if (comment == null) {
 		        System.out.println("Error: comment cannot be null.");
@@ -256,7 +253,7 @@ public class Occurrence {
 		
 		
 		
-		// Assign employee
+		// Assign employee to an occurrence
 		public void assignEmployee(Employee employee) {
 		    if (employee == null) {
 		        System.out.println("Error: employee cannot be null.");

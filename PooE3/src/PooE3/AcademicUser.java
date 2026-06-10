@@ -36,12 +36,14 @@ public class AcademicUser extends User {
 	
 
 	public Occurrence createOccurrence(String description, String location, OccurrenceType type, Priority priority, SystemManager systemManager) {
-
+		
+		//if null or blank
 		if (description == null || description.isBlank()) {
 			System.out.println("Error: Description cannot be empty!");
 			return null;
 		}
 		
+		//if null or blank
 		if (location == null || location.isBlank()) {
 	            System.out.println("Error: location cannot be empty.");
 	            return null;
@@ -62,15 +64,15 @@ public class AcademicUser extends User {
 	            return null;
 	        }
 
-		Occurrence occurrence = new Occurrence(
+		Occurrence occurrence = new Occurrence(				//new object
 				description,
 				location,
 				priority,
 				OccurrenceStatus.PENDING,
-				LocalDate.now(),
+				LocalDate.now(),							//current time
+				null,										//doesn't have values yet
 				null,
-				null,
-				new ArrayList<Comment>(),
+				new ArrayList<Comment>(),					//list of comments for that occurrence
 				this,
 				type,
 				null
@@ -91,7 +93,7 @@ public class AcademicUser extends User {
 
 	
 	
-
+	//edit an Occurrence
 	public boolean editOccurrence(int id, String newDescription) {
 		
 
@@ -114,6 +116,7 @@ public class AcademicUser extends User {
 	}
 
 
+	//remove an Occurrence
 	public boolean removeOccurrence(int id, String reason) {
 		
 	    if (reason == null || reason.isBlank()) {
@@ -140,11 +143,7 @@ public class AcademicUser extends User {
 	}
 	
 	
-	/**
-	 * Helper method for the method viewOccurrences()
-	 */
-	
-	
+	 //Helper method for the method viewOccurrences()
 	private int getPriorityValue(Priority priority) {
 	    if (priority == Priority.HIGH) {
 	        return 1;
@@ -157,25 +156,26 @@ public class AcademicUser extends User {
 	    return 3;
 	}
 	
-	/**
-	 * Allows Academic Users to check their occurrences sorted
-	 * 
-	 */
-	
+	//Allows Academic Users to check their occurrences sorted
 	public void viewOccurrences() {
-		ArrayList<Occurrence> sortedOccurrences = new ArrayList<>(occurrences);
+		//create a copy of the list (just to not chance the origin
+		ArrayList<Occurrence> sortedOccurrences = new ArrayList<>(occurrences); 
 		
+		//order the list and create a comparator method
 		Collections.sort(sortedOccurrences, new Comparator<Occurrence>() {
 			@Override
 			public int compare(Occurrence o1, Occurrence o2) {
 				
+				//takes the priority and converts it to a number and compares the numbers
 				int priorityComparison = Integer.compare(
 						getPriorityValue(o1.getPriority()),
 						getPriorityValue(o2.getPriority())
 						);
+				//if is not 0, do the priorityComparsion
 				if (priorityComparison != 0) {
 					return priorityComparison;
 				}
+				//if priority are the same, compare creationdate
 				return o1.getCreationDate().compareTo(o2.getCreationDate());
 			}
 		});
@@ -198,7 +198,6 @@ public class AcademicUser extends User {
 
 	    }
 	}
-	
 	
 }
 

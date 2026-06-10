@@ -10,8 +10,7 @@ import java.time.LocalDate;
 
 public class Comment {
 	private int id;
-	private static int nextId = 1;
-	
+	private static int nextId = 1;	
 	private String text;
 	private LocalDate postedDate;
 	private User author;
@@ -77,7 +76,6 @@ public class Comment {
         
 		this.author = author;
 	}
-	
 	
 	 @Override
 	    public String toString() {

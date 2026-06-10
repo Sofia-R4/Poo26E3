@@ -42,9 +42,9 @@ public class SystemManager {
 	
 	
 	//create specialty in adm
-		public int generateSpecialtyId() {
-		    return nextSpecialtyId++;
-		}
+	public int generateSpecialtyId() {
+	    return nextSpecialtyId++;
+	}
 		
 	
 	//add an user
@@ -79,7 +79,6 @@ public class SystemManager {
 	
 	
 	//general login method
-	
 	public User login(String credential, String password) {
 	    if (credential == null || credential.isBlank()) {
 	        System.out.println("Error: credential cannot be empty.");
@@ -149,14 +148,13 @@ public class SystemManager {
 	}
 	
 	
-	// Method to get all occurrences
+	//method to get all occurrences
 	public ArrayList<Occurrence> getOccurrences() {
 		return new ArrayList<>(occurrences);
 	}
 	
 	
-	// Method to get all employees by specialty
-	
+	//method to get all employees by specialty
 	public ArrayList<Employee> getEmployeesBySpecialty(Specialty specialty){
 		
 		ArrayList<Employee> result = new ArrayList<>();
@@ -168,7 +166,7 @@ public class SystemManager {
 		
 		for(Employee employee : employees) {
 			if(employee.getSpecialty() !=  null && employee.getSpecialty().equals(specialty)) {
-				result.add(employee);
+				result.add(employee); //save this employee
 			}
 		}
 		
@@ -178,17 +176,17 @@ public class SystemManager {
 	
 	// Method to get all occurrence totals grouped by type
 	public Map<OccurrenceType, Integer> getOccurrenceTotalsByType(){
-		
+		//create an empty map
 		Map<OccurrenceType, Integer> totals = new HashMap<>();
 		
 		for(Occurrence occurrence : occurrences) {
 			OccurrenceType type = occurrence.getType();
 			
 			if(type != null) {
-				if(totals.containsKey(type)){
-					totals.put(type, totals.get(type) + 1);
+				if(totals.containsKey(type)){ //if already exists
+					totals.put(type, totals.get(type) + 1); //add to the current one
 				} else {
-					totals.put(type, 1);
+					totals.put(type, 1); //start with 1
 				}
 			}
 		}
@@ -208,6 +206,7 @@ public class SystemManager {
 		System.out.println("Specialty added successfully");
 	}
 	
+	//show resolved occurrences
 	public void getResolvedOccurrences() {
 		for (Occurrence oc : occurrences) {
 			if(oc.getStatus() == OccurrenceStatus.RESOLVED) {
@@ -225,6 +224,7 @@ public class SystemManager {
 	}
 	
 	
+	//find the specialty by id
 	public Specialty findSpecialtyById(int id) {
 	    for (Specialty specialty : specialties) {
 	        if (specialty.getId() == id) {
@@ -235,6 +235,7 @@ public class SystemManager {
 	    return null;
 	}
 	
+	//add an occurrence
 	public void addOccurrence(Occurrence occurrence) {
 		
 	    if (occurrence == null) {
@@ -245,6 +246,8 @@ public class SystemManager {
 	    System.out.println("Occurrence added successfully!");
 	}
 	
+	
+	//find types by id
 	public OccurrenceType findOccurrenceTypeById(int id) {
 
 	    for (OccurrenceType type : types) {
@@ -257,6 +260,7 @@ public class SystemManager {
 	}
 	
 	
+	//find occurrence by id
 	public Occurrence findOccurrenceById(int id) {
 	    for (Occurrence occurrence : occurrences) {
 	        if (occurrence.getId() == id) {
@@ -272,6 +276,8 @@ public class SystemManager {
 		return new ArrayList<>(types);
 	}
 	
+	
+	//register employes only for admins
 	public void registerEmployee(String name, String email, String password, Specialty specialty) {
 
 	    if (name == null || name.isBlank()) {
