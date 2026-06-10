@@ -77,77 +77,69 @@ public class SystemManager {
 		}
 	}
 	
-	//login academic user with verification of password and number
-	public AcademicUser loginAcademicUser(String password, int number) {
-		for (User us : users) {
-			//the object in us is academicUSer?
-			if (us instanceof AcademicUser) {
-				//this user is an academic user
-				AcademicUser au = (AcademicUser) us;
-				
-				if(au.getUserNumber() == number) {
-					if(au.getPassword().equalsIgnoreCase(password)) {
-						System.out.println("Logged in!");
-						return au;
-					}
-				}
-			}
-		}
-			System.out.println("Number is incorrect!");
-			return null;
-	}
 	
-	//login admin with verification of password and email
-	public Admin loginAdmin(String password, String email) {
-		for (User us : users) {
-			
-			//the object in us is Admin?
-			if (us instanceof Admin) {
-				//this user is an admin
-				Admin adm = (Admin) us;
-					
-				if(adm.getEmail().equalsIgnoreCase(email)) {
-					if(adm.getPassword().equalsIgnoreCase(password)) {
-						System.out.println("Logged in!");
-						return adm;
-					}
-						
-					else{
-						System.out.println("Password is incorrect!");
-						return null;
-					}
-				}
-			}
-		}	
-		
-		System.out.println("Email is incorrect!");
-		return null;
-	}
+	//general login method
 	
-		
-	//login employee with verification of password and email
-	public Employee loginEmployee(String password, String email) {
-		for (User us : users) {
-			//the object in us is Employee?
-			if (us instanceof Employee) {
-				//this user is an employee
-				Employee emp = (Employee) us;
-							
-				if(emp.getEmail().equalsIgnoreCase(email)) {
-					if(emp.getPassword().equalsIgnoreCase(password)) {
-						System.out.println("Logged in!");
-						return emp;
-					}
-							
-				else{
-					System.out.println("Password is incorrect!");
-					return null;
-					}
-				}
-			}
-		}
-		System.out.println("Email is incorrect!");
-		return null;
+	public User login(String credential, String password) {
+	    if (credential == null || credential.isBlank()) {
+	        System.out.println("Error: credential cannot be empty.");
+	        return null;
+	    }
+
+	    if (password == null || password.isBlank()) {
+	        System.out.println("Error: password cannot be empty.");
+	        return null;
+	    }
+
+	    for (User user : users) {
+
+	        if (user instanceof AcademicUser) {
+	            AcademicUser academicUser = (AcademicUser) user;
+
+	            String userNumberText = String.valueOf(academicUser.getUserNumber());
+
+	            if (userNumberText.equals(credential)) {
+	                if (academicUser.getPassword().equals(password)) {
+	                    System.out.println("Logged in!");
+	                    return academicUser;
+	                } else {
+	                    System.out.println("Password is incorrect!");
+	                    return null;
+	                }
+	            }
+	        }
+
+	        if (user instanceof Admin) {
+	            Admin admin = (Admin) user;
+
+	            if (admin.getEmail().equalsIgnoreCase(credential)) {
+	                if (admin.getPassword().equals(password)) {
+	                    System.out.println("Logged in!");
+	                    return admin;
+	                } else {
+	                    System.out.println("Password is incorrect!");
+	                    return null;
+	                }
+	            }
+	        }
+
+	        if (user instanceof Employee) {
+	            Employee employee = (Employee) user;
+
+	            if (employee.getEmail().equalsIgnoreCase(credential)) {
+	                if (employee.getPassword().equals(password)) {
+	                    System.out.println("Logged in!");
+	                    return employee;
+	                } else {
+	                    System.out.println("Password is incorrect!");
+	                    return null;
+	                }
+	            }
+	        }
+	    }
+
+	    System.out.println("Credentials not found!");
+	    return null;
 	}
 	
 	
@@ -227,6 +219,22 @@ public class SystemManager {
 		}
 	}
 	
+	
+	public ArrayList<Specialty> getSpecialties() {
+	    return new ArrayList<>(specialties);
+	}
+	
+	
+	public Specialty findSpecialtyById(int id) {
+	    for (Specialty specialty : specialties) {
+	        if (specialty.getId() == id) {
+	            return specialty;
+	        }
+	    }
+
+	    return null;
+	}
+	
 	public void addOccurrence(Occurrence occurrence) {
 		
 	    if (occurrence == null) {
@@ -247,6 +255,18 @@ public class SystemManager {
 
 	    return null;
 	}
+	
+	
+	public Occurrence findOccurrenceById(int id) {
+	    for (Occurrence occurrence : occurrences) {
+	        if (occurrence.getId() == id) {
+	            return occurrence;
+	        }
+	    }
+
+	    return null;
+	}
+	
 
 	public ArrayList<OccurrenceType> getOccurrenceTypes() {
 		return new ArrayList<>(types);
@@ -276,6 +296,9 @@ public class SystemManager {
 
 	    employees.add(emp);
 	    users.add(emp);
+	    if (specialty.getEmployees() != null) {
+	        specialty.getEmployees().add(emp);
+	    }
 
 	    System.out.println("Employee created successfully!");
 	}
