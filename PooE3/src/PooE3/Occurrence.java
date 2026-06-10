@@ -45,6 +45,7 @@ public class Occurrence {
 				LocalDate creationDate, LocalDate resolutionDate, String removalReason, ArrayList<Comment> comments,
 				User createdBy, OccurrenceType type, Employee assignedEmployee) {
 			super();
+			this.id = nextId++;
 			this.description = description;
 			this.location = location;
 			this.priority = priority;
