@@ -30,6 +30,14 @@ public class SystemManager {
 		occurrences = new ArrayList<>();
 		types = new ArrayList<>();
 		specialties = new ArrayList<>();
+		
+		
+
+	    types.add(new OccurrenceType(1, "Limpeza", "Problema de limpeza ou higiene"));
+	    types.add(new OccurrenceType(2, "Eletricidade", "Problema elétrico"));
+	    types.add(new OccurrenceType(3, "Manutenção", "Problema geral de manutenção"));
+	    types.add(new OccurrenceType(4, "Equipamento", "Equipamentos danificados ou com defeito"));
+	    types.add(new OccurrenceType(5, "Outro", "Outro tipo de ocorrência"));
 	}
 	
 	
@@ -241,7 +249,7 @@ public class SystemManager {
 	}
 
 	public ArrayList<OccurrenceType> getOccurrenceTypes() {
-		return null;
+		return new ArrayList<>(types);
 	}
 	
 	public void registerEmployee(String name, String email, String password, Specialty specialty) {
