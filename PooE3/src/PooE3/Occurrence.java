@@ -226,7 +226,16 @@ public class Occurrence {
 		        return;
 		    }
 
+		    if (!employee.canAcceptOccurrence()) {
+		        System.out.println("Error: employee cannot accept more occurrences.");
+		        return;
+		    }
+
 		    this.assignedEmployee = employee;
 		    this.status = OccurrenceStatus.IN_PROGRESS;
+
+		    employee.addAssignedOccurrence(this);
+
+		    System.out.println("Occurrence assigned successfully.");
 		}
 }
