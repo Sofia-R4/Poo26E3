@@ -90,15 +90,17 @@ public class Employee extends User{
 		}
 	}
 	
-	public void canAcceptOccurrence(Occurrence o) {
-	    if (getAssignedOccurrenceCount() == 3) {
-	       System.out.println("This employee can not have more occurrences.");
-	    } 
-	    else {
-	          occurrences.add(o);
-	          System.out.println("Employee can have more occurrences");
+	public boolean canAcceptOccurrence() {
+	    int pendingCount = 0;
+
+	    for (Occurrence occurrence : occurrences) {
+	        if (occurrence.getStatus() == OccurrenceStatus.IN_PROGRESS) {
+	            pendingCount++;
+	        }
 	    }
+	    return pendingCount < 3;
 	}
+	
 	
 	public int getAssignedOccurrenceCount() {
 	    int count = 0;
@@ -107,8 +109,27 @@ public class Employee extends User{
 	            count++;
 	        }
 	    }
-	    System.out.println("This employee has: " + count + "occurrences");
 	    return count;	
+	}
+	
+	
+	public void addAssignedOccurrence(Occurrence occurrence) {
+	    if (occurrence == null) {
+	        System.out.println("Error: occurrence cannot be null.");
+	        return;
+	    }
+
+	    if (!canAcceptOccurrence()) {
+	        System.out.println("Error: employee already has 3 assigned occurrences.");
+	        return;
+	    }
+
+	    if (occurrences.contains(occurrence)) {
+	        System.out.println("Error: occurrence is already assigned to this employee.");
+	        return;
+	    }
+
+	    occurrences.add(occurrence);
 	}
 	
 	
@@ -129,6 +150,8 @@ public class Employee extends User{
 
 	    System.out.println("Occurrence not found.");
 	}
-	 
+	
+	
+	
+	
 }
-
