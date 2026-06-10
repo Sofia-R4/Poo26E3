@@ -52,30 +52,30 @@ public class Employee extends User{
 		this.email = email;
 	}
 	
-	public void updateAssignedOccurrenceStatus(int id) {
-		for (Occurrence oc : occurrences) {
-			if(oc.getId() == id) {
-				if(oc.getAssignedEmployee() == this) {
-					if(oc.getStatus() == OccurrenceStatus.IN_PROGRESS) {
-						oc.setStatus(OccurrenceStatus.RESOLVED);
-						
-						System.out.println("State was updated");
-					}
-					else {
-						System.out.println("Occurrence is in progress so it can not be updated.");
-					}
-				}
-				
-				else {
-					System.out.println("Select occurrence don't belong to you.");
-				}
-				
-				return; //encontrou a ococrrencia correta entao acabou o for
-			}
-		}
-		
-		System.out.println("This occurrence doesn't exist.");
+	
+	
+	public void resolveOccurrence(Occurrence occurrence) {
+	    if (occurrence == null) {
+	        System.out.println("Error: occurrence cannot be null.");
+	        return;
+	    }
+
+	    if (!occurrences.contains(occurrence)) {
+	        System.out.println("Error: this occurrence is not assigned to this employee.");
+	        return;
+	    }
+
+	    if (occurrence.getStatus() != OccurrenceStatus.IN_PROGRESS) {
+	        System.out.println("Error: only occurrences in progress can be resolved.");
+	        return;
+	    }
+
+	    occurrence.updateStatus(OccurrenceStatus.RESOLVED);
+
+	    System.out.println("Occurrence resolved successfully.");
 	}
+	
+	
 	
 	public void viewAssignedOccurrences() {
 		for (Occurrence oc : occurrences) {		
