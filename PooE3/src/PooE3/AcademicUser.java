@@ -31,7 +31,7 @@ public class AcademicUser extends User {
 
 	
 
-	public Occurrence createOccurrence(String description, String location, OccurrenceType type, SystemManager systemManager) {
+	public Occurrence createOccurrence(String description, String location, OccurrenceType type, Priority priority, SystemManager systemManager) {
 
 		if (description == null || description.isBlank()) {
 			System.out.println("Error: Description cannot be empty!");
@@ -47,6 +47,11 @@ public class AcademicUser extends User {
 	            System.out.println("Error: occurrence type cannot be null.");
 	            return null;
 	        }
+	    
+	    if (priority == null) {
+	        System.out.println("Error: priority cannot be null.");
+	        return null;
+	    }
 
 	    if (systemManager == null) {
 	            System.out.println("Error: system manager cannot be null.");
@@ -56,7 +61,7 @@ public class AcademicUser extends User {
 		Occurrence occurrence = new Occurrence(
 				description,
 				location,
-				Priority.LOW,
+				priority,
 				OccurrenceStatus.PENDING,
 				LocalDate.now(),
 				null,
