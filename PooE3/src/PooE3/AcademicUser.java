@@ -114,18 +114,28 @@ public class AcademicUser extends User {
 	}
 
 
-	public boolean removeOccurrence(int id) {
+	public boolean removeOccurrence(int id, String reason) {
+		
+	    if (reason == null || reason.isBlank()) {
+	        System.out.println("Error: removal reason cannot be empty.");
+	        return false;
+	    }
 
 		for (Occurrence occurrence : occurrences) {
-
-			if (occurrence.getId() == id && occurrence.canBeRemoved()) {
-
-				occurrence.markAsRemoved();
-
+			
+			if (occurrence.getId() == id){
+				
+				if(occurrence.canBeRemoved()) {
+					occurrence.markAsRemoved(reason);
 				return true;
+				
+			} else {
+				System.out.println("Error: occurrence cannot be removed because it is not pending.");
+				return false;
+				}
 			}
 		}
-
+		System.out.println("Error: occurrence not found");
 		return false;
 	}
 	

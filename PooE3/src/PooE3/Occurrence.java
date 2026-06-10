@@ -192,11 +192,26 @@ public class Occurrence {
 			return status == OccurrenceStatus.PENDING;
 		}
 
+		
 	
-		public void markAsRemoved() {
+		public void markAsRemoved(String reason) {
 
-			this.removalReason = "Removed";
+			if (reason == null || reason.isBlank()) {
+		        System.out.println("Error: removal reason cannot be empty.");
+		        return;
+		    }
+
+		    if (!canBeRemoved()) {
+		        System.out.println("Error: occurrence cannot be removed because it is not pending.");
+		        return;
+		    }
+
+		    this.removalReason = reason;
+		    this.status = OccurrenceStatus.REMOVED;
+
+		    System.out.println("Occurrence marked as removed.");
 		}
+		
 	
 
 		public void addComment(Comment comment) {
