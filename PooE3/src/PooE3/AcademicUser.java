@@ -2,6 +2,10 @@ package PooE3;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+// Needed for Users can see their occurrences sorted.
+import java.util.Collections;
+import java.util.Comparator;
+
 
 public class AcademicUser extends User {
 
@@ -124,4 +128,67 @@ public class AcademicUser extends User {
 
 		return false;
 	}
+	
+	
+	/**
+	 * Helper method for the method viewOccurrences()
+	 */
+	
+	
+	private int getPriorityValue(Priority priority) {
+	    if (priority == Priority.HIGH) {
+	        return 1;
+	    }
+
+	    if (priority == Priority.MEDIUM) {
+	        return 2;
+	    }
+
+	    return 3;
+	}
+	
+	/**
+	 * Allows Academic Users to check their occurrences sorted
+	 * 
+	 */
+	
+	public void viewOccurrences() {
+		ArrayList<Occurrence> sortedOccurrences = new ArrayList<>(occurrences);
+		
+		Collections.sort(sortedOccurrences, new Comparator<Occurrence>() {
+			@Override
+			public int compare(Occurrence o1, Occurrence o2) {
+				
+				int priorityComparison = Integer.compare(
+						getPriorityValue(o1.getPriority()),
+						getPriorityValue(o2.getPriority())
+						);
+				if (priorityComparison != 0) {
+					return priorityComparison;
+				}
+				return o1.getCreationDate().compareTo(o2.getCreationDate());
+			}
+		});
+		
+		if (sortedOccurrences.isEmpty()) {
+			System.out.println("You have not created any occurrences yet.");
+			return;
+		}
+		
+		System.out.println("--My Occurrences--");
+
+	    for (Occurrence occurrence : sortedOccurrences) {
+	        System.out.println("ID: " + occurrence.getId());
+	        System.out.println("Description: " + occurrence.getDescription());
+	        System.out.println("Location: " + occurrence.getLocation());
+	        System.out.println("Type: " + occurrence.getType());
+	        System.out.println("Priority: " + occurrence.getPriority());
+	        System.out.println("Status: " + occurrence.getStatus());
+	        System.out.println("Creation date: " + occurrence.getCreationDate());
+
+	    }
+	}
+	
+	
 }
+
