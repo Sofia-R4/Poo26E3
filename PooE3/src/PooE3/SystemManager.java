@@ -92,6 +92,7 @@ public class SystemManager {
 	//login admin with verification of password and email
 	public Admin loginAdmin(String password, String email) {
 		for (User us : users) {
+			
 			//the object in us is Admin?
 			if (us instanceof Admin) {
 				//this user is an admin
@@ -100,11 +101,12 @@ public class SystemManager {
 				if(adm.getEmail().equalsIgnoreCase(email)) {
 					if(adm.getPassword().equalsIgnoreCase(password)) {
 						System.out.println("Logged in!");
+						return adm;
 					}
 						
 					else{
 						System.out.println("Password is incorrect!");
-						return adm;
+						return null;
 					}
 				}
 			}
@@ -126,11 +128,12 @@ public class SystemManager {
 				if(emp.getEmail().equalsIgnoreCase(email)) {
 					if(emp.getPassword().equalsIgnoreCase(password)) {
 						System.out.println("Logged in!");
+						return emp;
 					}
 							
 				else{
 					System.out.println("Password is incorrect!");
-					return emp;
+					return null;
 					}
 				}
 			}
