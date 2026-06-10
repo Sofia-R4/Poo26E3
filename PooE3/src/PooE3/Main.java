@@ -113,6 +113,7 @@ public class Main {
 			    		boolean loggedAcademic = true;
 
 			    			while (loggedAcademic) {
+			    				System.out.println("");
 			    				System.out.println("--- MENU ACADEMIC USER ---");
 			    				System.out.println("1 - Register occurrence");
 			    				System.out.println("2 - View my occurrences");
@@ -294,6 +295,7 @@ public class Main {
                         boolean loggedEmployee = true;
 
                         while (loggedEmployee) {
+                        	System.out.println("");
                             System.out.println("------ MENU EMPLOYEE ------");
                             System.out.println("1 - My occurrences");
                             System.out.println("2 - Resolve occurrence");
@@ -379,6 +381,7 @@ public class Main {
 
 			        while(loggedA) {
 
+			        	System.out.println("");
 			            System.out.println("------ MENU ADMIN ------");
 			            System.out.println("1 - Register employee");
 			            System.out.println("2 - Create specialty");
@@ -488,6 +491,7 @@ public class Main {
                                     break;
                                 }
 
+                                System.out.println("");
                                 System.out.println("-----/ ALL OCCURRENCES /------");
 
                                 for (Occurrence occurrence : occurrences) {
@@ -566,6 +570,7 @@ public class Main {
                                     break;
                                 }
 
+                                System.out.println("");
                                 System.out.println("Available employees:");
 
                                 for (int i = 0; i < employeesBySpecialty.size(); i++) {
@@ -618,6 +623,8 @@ public class Main {
                                     break;
                                 }
 
+                                System.out.println("");
+                                System.out.println("");
                                 System.out.println("Choose new status:");
                                 System.out.println("1 - PENDING");
                                 System.out.println("2 - IN_PROGRESS");
@@ -679,6 +686,7 @@ public class Main {
                                     break;
                                 }
 
+                                System.out.println("");
                                 System.out.println("-----/ OCCURRENCE TOTALS BY TYPE /-----");
 
                                 for (OccurrenceType type : totals.keySet()) {
